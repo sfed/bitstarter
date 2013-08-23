@@ -1,10 +1,12 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
+var index_buf= fs.readFileSync(index.html);
+
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-    var index_buf= fs.readFileSync(index.html);
+    
     response.send(index_buf.toString());
 });
 
